@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Scheduler</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body id="body">
+    <div class="container">
+        <h1 class="text-center my-4">Task Scheduler</h1>
+        <div class="form-group">
+            <input type="text" id="taskName" class="form-control" placeholder="Task Name" required>
+            <select id="taskPriority" class="form-control mt-2">
+                <option value="Top Priority">Top Priority</option>
+                <option value="Medium Priority">Medium Priority</option>
+                <option value="Low Priority">Low Priority</option>
+            </select>
+            <input type="date" id="taskDeadline" class="form-control mt-2" required>
+            <div class="time-inputs mt-2">
+                <div class="row">
+                    <div class="col">
+                        <input type="number" id="taskHour" min="1" max="12" class="form-control" placeholder="Hour" required>
+                    </div>
+                    <div class="col">
+                        <input type="number" id="taskMinute" min="0" max="59" class="form-control" placeholder="Minute" required>
+                    </div>
+                    <div class="col">
+                        <select id="taskPeriod" class="form-control">
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button onclick="addTask()" class="btn btn-success mt-3">Add Task</button>
+        </div>
+        <div id="notification" class="notification alert alert-info" role="alert" style="display:none;"></div>
+        <div id="taskList" class="task-list mt-4"></div>
+        <button class="btn btn-primary mt-4" onclick="toggleMode()">Toggle Dark/Light Mode</button>
+    </div>
+
+    <!-- Notification Sound -->
+    <audio id="notificationSound">
+        <source src="notification-sound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
